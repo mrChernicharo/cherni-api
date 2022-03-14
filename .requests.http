@@ -11,3 +11,12 @@ content-type: application/json
 GET http://localhost:8080/users
 
 ###
+
+
+POST https://cherni-api.ue.r.appspot.com/users
+content-type: application/json
+
+{
+	"name": "Tim",
+	"email": "tim@gmail.com"
+}
