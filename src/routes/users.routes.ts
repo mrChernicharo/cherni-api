@@ -1,31 +1,31 @@
-import { Router } from "express";
-import { usersRepository } from "../repositories/users";
+import { Router } from 'express';
+import { usersRepository } from '../repositories/users';
 
 const userRoutes = Router();
 
-userRoutes.post("/", (req, res) => {
-  const { name, email } = req.body;
+userRoutes.post('/', (req, res) => {
+	const { name, email } = req.body;
 
-  usersRepository.createUser(name, email);
+	usersRepository.createUser(name, email);
 
-  res.sendStatus(201);
+	res.sendStatus(201);
 });
 
-userRoutes.get("/", (req, res) => {
-  const users = usersRepository.getUsers();
+userRoutes.get('/', (req, res) => {
+	const users = usersRepository.getUsers();
 
-  res.send(`
-	<h1>Users</h1>
+	res.send(`
+	<h1>Heelooooow Users!</h1>
 	
 	<ul>
 	${users
-    .map(
-      (user) => `
+		.map(
+			user => `
 		<li>
 			name: ${user.name} email: ${user.email} id: ${user.id} 
 		</li>`
-    )
-    .join("")}
+		)
+		.join('')}
 	</ul>
 	`);
 });
